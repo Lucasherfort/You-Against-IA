@@ -9,7 +9,10 @@ public class Awale : Game<StateAwale,int,int>
     {
         state.player = 1;
         state.grid = new int[12];
+    }
 
+    public StateAwale getInitialState()
+    {
         state.grid[0] = 4;
         state.grid[1] = 4;
         state.grid[2] = 4;
@@ -22,10 +25,6 @@ public class Awale : Game<StateAwale,int,int>
         state.grid[9] = 4;
         state.grid[10] = 4;
         state.grid[11] = 4;
-    }
-
-    public StateAwale getInitialState()
-    {
 
         return state;
     }
