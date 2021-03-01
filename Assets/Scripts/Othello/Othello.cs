@@ -9,15 +9,15 @@ public class Othello : Game<StateOthello,int,int>
     public Othello()
     {
         state.player = 1;
-        state.grid = new Color[64];
+        state.grid = new Color[8,8];
     }
 
     public StateOthello getInitialState()
     {
-        state.grid[27] = Color.white;
-        state.grid[28] = Color.black;
-        state.grid[35] = Color.black;
-        state.grid[36] = Color.white;
+        state.grid[3,3] = Color.white;
+        state.grid[3,3] = Color.black;
+        state.grid[3,4] = Color.black;
+        state.grid[4,4] = Color.white;
 
         return state;
     }
@@ -31,8 +31,14 @@ public class Othello : Game<StateOthello,int,int>
     {
         List<int> actions = new List<int>();
         
-        for(int i = 0 ; i < state.grid.Length ; i++)
+        for(int i = 0 ; i < 8 ; i++)
         {
+            for(int j = 0 ; j < 8 ; j++)
+            {
+
+            }
+
+            /*
             if(state.grid[i] == Color.clear)
             {
 
@@ -40,6 +46,7 @@ public class Othello : Game<StateOthello,int,int>
 
                 actions.Add(i);
             }
+            */
         }
 
         return (actions);
@@ -49,11 +56,12 @@ public class Othello : Game<StateOthello,int,int>
     {
         StateOthello newState = new StateOthello();
 
-        newState.grid = (Color[])state.grid.Clone();
+        newState.grid = (Color[,])state.grid.Clone();
 
 
         // TODO :(
 
+        /*
         if(state.player == 1)
         {
             newState.grid[action] = Color.black;
@@ -62,6 +70,7 @@ public class Othello : Game<StateOthello,int,int>
         {
             newState.grid[action] = Color.white;
         }
+        */
 
         newState.player = 1 - state.player;
 
@@ -70,11 +79,14 @@ public class Othello : Game<StateOthello,int,int>
 
     public bool isTerminal(StateOthello state)
     {
-        for(int i = 0 ; i < state.grid.Length ; i++)
+        for(int i = 0 ; i < 8 ; i++)
         {
-            if(state.grid[i] == Color.clear)
+            for(int j = 0 ; i < 8 ; j++)
             {
-                return false;
+                if(state.grid[i,j] == Color.clear)
+                {
+                    return false;
+                }
             }
         }
         return true;
@@ -123,7 +135,7 @@ public class Othello : Game<StateOthello,int,int>
 public class StateOthello
 {
     public int player;
-    public Color[] grid;
+    public Color[,] grid;
 
 
     // Constructeur par défaut
