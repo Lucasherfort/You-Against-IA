@@ -61,8 +61,6 @@ public class AwaleTestAI : MonoBehaviour
 
         action = alphabetaSearch.makeDecision(CurrentState);
 
-        Debug.Log("L'IA a choisi de jouer case "+action);
-
         StateAwale updateState = game.getResult(CurrentState, action);
 
         CurrentState = updateState;
@@ -86,9 +84,7 @@ public class AwaleTestAI : MonoBehaviour
             CheckisTerminal();
         }
         else
-        {
-            // erreur
-            Debug.Log("Action impossible");        
+        {  
             return;   
         }
     }

@@ -60,8 +60,6 @@ public class Puissance4TestAI : MonoBehaviour
 
         action = alphabetaSearch.makeDecision(CurrentState);
 
-        Debug.Log("L'IA a choisi de jouer case "+action);
-
         GameObject.Find(action.ToString()).GetComponent<Image>().color = Color.red;
 
         StatePuissance4 updateState = game.getResult(CurrentState, action);
@@ -84,9 +82,7 @@ public class Puissance4TestAI : MonoBehaviour
             CheckisTerminal();
         }
         else
-        {
-            // erreur
-            Debug.Log("Action impossible");        
+        {     
             return;   
         }
     }
