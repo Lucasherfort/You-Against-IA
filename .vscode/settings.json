@@ -53,5 +53,5 @@
         "Temp/": true
     },
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "You-Against-IA.sln"
+    "dotnet.defaultSolution": "You-Against-IA.slnx"
 }
